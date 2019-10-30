@@ -50,6 +50,24 @@ def weight_change(weight, option, list):
     return weight
 
 
+# Check if the rabbit is dead or not based off its weight - if over or
+# underweight the rabbit dies and the game ends
+def death_check(weight, name):
+    if 1.5 <= weight <= 2.5:
+        keep_going = ""
+        print("Game continues")
+    else:
+        print("Sorry, {} died".format(name))
+        if 1.5 > weight:
+             print("{} was underweight".format(name))
+             print("{}'s weight was {}".format(name, weight))
+        if 2.5 < weight:
+             print("{} was overweight".format(name))
+             print("{}'s weight was {}".format(name, weight))
+        keep_going = "g" # Game ends
+    return keep_going
+
+
 # Main routine
 if __name__ == "__main__":
 
@@ -116,18 +134,14 @@ if __name__ == "__main__":
             if option == 1:
                 print("Kale")
                 weight = weight_change(weight, option, FOOD_LIST)
-                print("{} currently weighs {} kg".format(name, weight))
             if option == 2:
                 print("Broccoli")
                 weight = weight_change(weight, option, FOOD_LIST)
-                print("{} currently weighs {} kg".format(name, weight))
             if option == 3:
                 print("Apple")
                 weight = weight_change(weight, option, FOOD_LIST)
             print("{} currently weighs {} kg".format(name, weight))
-
-            keep_going = input("To continue the game press enter button - to "
-                               "end the game enter 'q': ")
+            keep_going = death_check(weight, name)
         # If the user chooses option 2
         if choice == 2:
             print("Exercise {}".format(name))
@@ -151,16 +165,12 @@ if __name__ == "__main__":
                 print("Walking")
                 weight = weight_change(weight, option, EXERCISE_LIST)
                 print("{} currently weighs {} kg".format(name, weight))
-            keep_going = input("To continue the game press enter button - to "
-                               "end the game enter 'q': ")
-
+            death_check(weight, name)
         # If the user chooses option 3
         if choice == 3:
             print("Check {}'s weight".format(name))
             print(weight)
-            # weight will go here
-            keep_going = input("To continue the game press enter button - to "
-                               "end the game enter 'q': ")
+            death_check(weight, name)
         # If the user chooses option 4
         if choice == 4:
             print("See help information")
@@ -169,11 +179,7 @@ if __name__ == "__main__":
             print("Eating food will make {}'s weight go up and exercise will "
                   "bring {}'s weight down.".format(name, name))
             print("If {}'s weight goes outside of the weight range of 1.5kg to"
-                  " 2.5kg {} will die.".format(name, name))
-            keep_going = input("To continue the game press enter button - to "
-                               "end the game enter 'q': ")
+                  " 2.5kg {} will die.".format(name, name
         if choice == 5:
             print("End game")
-            keep_going = input("To continue the game press enter button - to "
-                               "end the game enter 'q': ")
 
