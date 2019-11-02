@@ -84,10 +84,12 @@ def death_check(weight, name):
 # Main routine
 if __name__ == "__main__":
 
+    # Food and exercise list and dictionaries
     FOOD_LIST = [["Kale", 0.1], ["Broccoli", 0.2], ["Apple", 0.4]]
-    EXERCISE_LIST = [["Hopping", -0.3], ["Running", -0.5], ["Walking", -0.1]]
-    EXERCISE_DICT = {"Hopping": -0.3, "Running": -0.5, "Walking": -0.1}
     FOOD_DICT = {"Kale": 0.1, "Broccoli": 0.2, "Apple": 0.4}
+    EXERCISE_DICT = {"Hopping": -0.3, "Running": -0.5, "Walking": -0.1}
+    EXERCISE_LIST = [["Hopping", -0.3], ["Running", -0.5], ["Walking", -0.1]]
+
 
     print("Welcome to Virtual Rabbit")
     print("")
